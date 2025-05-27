@@ -1,5 +1,5 @@
 import { PracticeFormPage } from "../pageObjects/practiceformPage";
-
+import {PracticeFormValidate} from "../pageObjects/PracticeFormValidate";
 
 describe("Practice Form", () => {
   context("Full form submission", () => {
@@ -34,6 +34,23 @@ describe("Practice Form", () => {
       
       PracticeFormPage.submitButton().click();
       
+      // Validate the submitted data
+      
+      PracticeFormValidate.namecheck().should("have.text", "Yoruichi Simp");
+      PracticeFormValidate.emailcheck().should("have.text", "aaaaaaaaa@gmail.com");
+      PracticeFormValidate.gendercheck().should("have.text","Male");
+      PracticeFormValidate.mobilecheck().should("have.text", "1234567890");
+      PracticeFormValidate.dobcheck().should("have.text", "28 February,1930");
+      PracticeFormValidate.subjectcheck().should("have.text", "Economics");
+      PracticeFormValidate.hobbiescheck().should("have.text", "Music");
+      PracticeFormValidate.picturecheck().should("have.text", "comrad_alya.jpg");
+      PracticeFormValidate.addresscheck().should("have.text", "Soul Society, Seireitei, Rukongai");
+      PracticeFormValidate.stateAndcitycheck().should("have.text", "NCR Delhi");
+
+
+
+
+
 
     });
   });
